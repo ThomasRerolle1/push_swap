@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:10:29 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/06 13:05:21 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/07 12:48:59 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	pa(t_env *env)
 		disconnect_node(env->B->top);
 		disconnect_node(env->B->bot);
 	}
+	ft_putendl_fd("pa", 1);
 	return ;
 }
 
@@ -104,6 +105,7 @@ void	pb(t_env *env)
 		disconnect_node(env->A->top);
 		disconnect_node(env->A->bot);
 	}
+	ft_putendl_fd("pb", 1);
 	return ;
 }
 

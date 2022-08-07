@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 07:51:09 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/06 16:05:03 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/07 14:25:42 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ t_env	*create_env(void);
 void	clear_nodes(t_node *top);
 t_stack	*clear_stack(t_stack *stack);
 t_env	*clear_env(t_env *env);
+void	clear_str(char	*str);
+char	**clear_av(char **av);
 void	connect_node(t_node *cur_node, t_node *next_node);
 t_node	*create_assign_connect_node(t_node *cur_node, char *str);
 t_stack	*link_nodes_to_stack(t_stack *A, t_node *bot_node);
@@ -53,6 +55,7 @@ int	parse_argv(t_env *env, char **argv);
 void	pa(t_env *env);
 void	pb(t_env *env);
 void	sa(t_env *env);
+void	sb(t_env *env);
 void	ra(t_env *env);
 void	rb(t_env *env);
 void	rr(t_env *env);
@@ -64,3 +67,11 @@ void	sort_values(t_env *env);
 void	find_index(t_stack *A, t_node *cur_node);
 void	convert_numbers_into_index(t_env *env);
 void	fill_copy_rank_in_value(t_env *env);
+t_node	*find_two_smallest(t_env *env);
+int		choose_ra_rra(t_env *env, t_node *smallest);
+void	find_push_two_smallest(t_env *env);
+void	sort_three_nums(t_env *env);
+void	sort_five_nums(t_env *env);
+int		is_sorted(t_env *env);
+void	radix(t_env *env);
+void	exit_error(char *str, int argc, char **av, t_env *env);

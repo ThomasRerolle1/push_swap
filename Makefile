@@ -13,7 +13,9 @@ SRCS = srcs/push_swap.c\
 	   srcs/stack_op/rotate.c\
 	   srcs/stack_op/reverse_rotate.c\
 	   srcs/utils/indexing_stack.c\
-	   srcs/sort_op/small_stack.c
+	   srcs/sort_op/small_stack.c\
+	   srcs/sort_op/radix.c\
+	   srcs/utils/find_small.c
 
 
 LIBFT_DIR = ./libft

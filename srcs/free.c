@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 07:48:07 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/03 08:01:36 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/07 14:26:03 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -51,3 +51,26 @@ t_env	*clear_env(t_env *env)
 	return (NULL);
 }
 
+void	clear_str(char	*str)
+{
+	if (str)
+		free(str);
+	str = NULL;
+}
+
+char	**clear_av(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+		i++;
+	while (i != 0)
+	{
+		clear_str(av[i]);
+		i--;
+	}
+	free(av);
+	av = NULL;
+	return (av);
+}

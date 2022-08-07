@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 12:42:37 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/06 13:05:11 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/07 11:50:41 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	rra(t_env *env)
 	tmp->next = env->A->top;
 	env->A->top->prev = tmp;
 	env->A->top = tmp;
+	ft_putendl_fd("rra", 1);
 }
 
 void	rrb(t_env *env)
@@ -40,6 +41,7 @@ void	rrb(t_env *env)
 	tmp->next = env->B->top;
 	env->B->top->prev = tmp;
 	env->B->top = tmp;
+	ft_putendl_fd("rrb", 1);
 }
 
 void	rrr(t_env *env)
