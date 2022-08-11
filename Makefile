@@ -43,6 +43,8 @@ clean:
 	rm -f ${OBJS}
 
 fclean: clean
+	make fclean -C libft/
+	rm -f libft.a
 	rm -f ${NAME}
 
 build:
