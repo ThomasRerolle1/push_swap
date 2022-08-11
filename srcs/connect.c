@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:58:31 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/06 10:42:21 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:17:49 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ t_node	*create_assign_connect_node(t_node *cur_node, char *str)
 	return (next_node);
 }
 
-t_stack	*link_nodes_to_stack(t_stack *A, t_node *bot_node)
+t_stack	*link_nodes_to_stack(t_stack *a, t_node *bot_node)
 {
 	t_node	*top_node;
 
 	if (!bot_node)
-		return (A);
+		return (a);
 	top_node = bot_node;
-	A->bot = bot_node;
+	a->bot = bot_node;
 	while (top_node->prev)
 	{
 		top_node = top_node->prev;
 	}
-	A->top = top_node;
-	return (A);
+	a->top = top_node;
+	return (a);
 }
 
 void	disconnect_node(t_node *node)

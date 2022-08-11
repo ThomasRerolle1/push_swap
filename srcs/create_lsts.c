@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 07:49:50 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/06 14:36:14 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:17:56 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_node	*create_node(void)
 
 t_node	*create_assign_node(int value)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = create_node();
 	node->value = value;
@@ -55,8 +55,30 @@ t_env	*create_env(void)
 	env = (t_env *)malloc(sizeof(t_env));
 	if (!env)
 		return (NULL);
-	env->A = create_stack();
-	env->B = create_stack();
+	env->a = create_stack();
+	env->b = create_stack();
 	return (env);
 }
 
+/*
+int main(int argc, char **argv)
+{
+	if (argc < 2)
+		return (0);
+	argv = argv + 1;
+	t_node	*cur_node = NULL;
+	t_node	*next_node = NULL;
+
+	
+	while (*argv)
+	{
+		if (!cur_node)
+			next_node = create_assign_node(ft_atoi(*argv));
+		else
+			next_node = create_assign_connect_node(cur_node, *argv);
+		cur_node = next_node;
+		next_node = NULL;
+		argv++;
+	}
+	return (0);
+}*/

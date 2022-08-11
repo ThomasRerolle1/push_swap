@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 08:22:44 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/03 12:09:04 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:17:21 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ int	check_is_num(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] == ' ' || str[i] == '-' || str[i] == '+')
+	if (str[i] == ' ' || str[i] == '-' || str[i] == '+')
 		i++;
+	if (!str[i])
+		return (0);
 	while (str[i])
 	{
 		if (str[i] < '0' || '9' < str[i])
@@ -28,12 +30,12 @@ int	check_is_num(char *str)
 	return (1);
 }
 
-int check_int(char	*str)
+int	check_int(char *str)
 {
 	long	res;
 
 	res = ft_atol(str);
-	if (res <= INT_MIN || INT_MAX <= res)
+	if (res < INT_MIN || INT_MAX < res)
 		return (0);
 	return (1);
 }
@@ -43,7 +45,7 @@ int	check_dup(t_env *env)
 	t_node	*cur_node;
 	t_node	*node_to_test;
 
-	cur_node = env->A->top;
+	cur_node = env->a->top;
 	while (cur_node)
 	{
 		node_to_test = cur_node->next;
@@ -72,5 +74,6 @@ int	main(int argc, char **argv)
 			printf("num\n");
 		i++;
 	}
+	if (!check_dup(env))
 	return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 12:40:21 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/07 13:10:06 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:21:09 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_node	*find_two_smallest(t_env *env)
 	t_node	*bot;
 	t_node	*top;
 
-	bot = env->A->bot;
-	top = env->A->top;
+	bot = env->a->bot;
+	top = env->a->top;
 	while (bot && top)
 	{
 		if (top->value == 1 || top->value == 2)
@@ -36,8 +36,8 @@ int	choose_ra_rra(t_env *env, t_node *smallest)
 	t_node	*from_top;
 	t_node	*from_bot;
 
-	from_top = env->A->top;
-	from_bot = env->A->bot;
+	from_top = env->a->top;
+	from_bot = env->a->bot;
 	while (from_top && from_bot)
 	{
 		if (from_top == smallest)
@@ -59,12 +59,12 @@ void	find_push_two_smallest(t_env *env)
 		return ;
 	if (choose_ra_rra(env, smallest) == 1)
 	{
-		while (env->A->top != smallest)
+		while (env->a->top != smallest)
 			ra(env);
 	}
 	else
 	{
-		while (env->A->top != smallest)
+		while (env->a->top != smallest)
 			rra(env);
 	}
 	pb(env);

@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 12:42:37 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/07 11:50:41 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:20:45 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 void	rra(t_env *env)
 {
 	t_node	*tmp;
-	
-	if (env->A->size < 2)
+
+	if (env->a->size < 2)
 		return ;
-	tmp = env->A->bot;
-	env->A->bot = env->A->bot->prev;
-	env->A->bot->next = NULL;
+	tmp = env->a->bot;
+	env->a->bot = env->a->bot->prev;
+	env->a->bot->next = NULL;
 	disconnect_node(tmp);
-	tmp->next = env->A->top;
-	env->A->top->prev = tmp;
-	env->A->top = tmp;
+	tmp->next = env->a->top;
+	env->a->top->prev = tmp;
+	env->a->top = tmp;
 	ft_putendl_fd("rra", 1);
 }
 
 void	rrb(t_env *env)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
-	if (env->B->size < 2)
+	if (env->b->size < 2)
 		return ;
-	tmp = env->B->bot;
-	env->B->bot = env->B->bot->next;
-	env->B->bot->next = NULL;
+	tmp = env->b->bot;
+	env->b->bot = env->b->bot->next;
+	env->b->bot->next = NULL;
 	disconnect_node(tmp);
-	tmp->next = env->B->top;
-	env->B->top->prev = tmp;
-	env->B->top = tmp;
+	tmp->next = env->b->top;
+	env->b->top->prev = tmp;
+	env->b->top = tmp;
 	ft_putendl_fd("rrb", 1);
 }
 

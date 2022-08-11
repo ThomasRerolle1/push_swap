@@ -1,1 +1,7 @@
 Dockerfile
+pst/*
+pst_unmodified/*
+push_swap_tester/*
+checker
+normi.txt
+libft.a

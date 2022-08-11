@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:01:47 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/07 11:53:18 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:20:58 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ void	sa(t_env *env)
 {
 	t_node	*tmp;
 
-	if (env->A->size < 2)
+	if (env->a->size < 2)
 		return ;
-	tmp = env->A->top->next;
-	env->A->top->next = env->A->top->next->next;
-	if (env->A->top->next)
-		env->A->top->next->prev = env->A->top;
-	if (env->A->size == 2)
-		env->A->bot = env->A->top;
+	tmp = env->a->top->next;
+	env->a->top->next = env->a->top->next->next;
+	if (env->a->top->next)
+		env->a->top->next->prev = env->a->top;
+	if (env->a->size == 2)
+		env->a->bot = env->a->top;
 	disconnect_node(tmp);
-	tmp->next = env->A->top;
-	env->A->top->prev = tmp;
-	env->A->top = tmp;
+	tmp->next = env->a->top;
+	env->a->top->prev = tmp;
+	env->a->top = tmp;
 	ft_putendl_fd("sa", 1);
 }
 
@@ -35,18 +35,18 @@ void	sb(t_env *env)
 {
 	t_node	*tmp;
 
-	if (env->B->size < 2)
+	if (env->b->size < 2)
 		return ;
-	tmp = env->B->top->next;
-	env->B->top->next = env->B->top->next->next;
-	if (env->B->top->next)
-		env->B->top->next->prev = env->B->top;
-	if (env->B->size == 2)
-		env->B->bot = env->B->top;
+	tmp = env->b->top->next;
+	env->b->top->next = env->b->top->next->next;
+	if (env->b->top->next)
+		env->b->top->next->prev = env->b->top;
+	if (env->b->size == 2)
+		env->b->bot = env->b->top;
 	disconnect_node(tmp);
-	tmp->next = env->B->top;
-	env->B->top->prev = tmp;
-	env->B->top = tmp;
+	tmp->next = env->b->top;
+	env->b->top->prev = tmp;
+	env->b->top = tmp;
 	ft_putendl_fd("sb", 1);
 }
 

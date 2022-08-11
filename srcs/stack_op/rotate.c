@@ -6,26 +6,25 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 15:15:11 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/07 11:51:44 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:20:53 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-
 void	ra(t_env *env)
 {
 	t_node	*tmp;
 
-	if (env->A->size < 2)
+	if (env->a->size < 2)
 		return ;
-	tmp = env->A->top;
-	env->A->top = env->A->top->next;
-	env->A->top->prev = NULL;
+	tmp = env->a->top;
+	env->a->top = env->a->top->next;
+	env->a->top->prev = NULL;
 	disconnect_node(tmp);
-	tmp->prev = env->A->bot;
-	env->A->bot->next = tmp;
-	env->A->bot = tmp;
+	tmp->prev = env->a->bot;
+	env->a->bot->next = tmp;
+	env->a->bot = tmp;
 	ft_putendl_fd("ra", 1);
 }
 
@@ -33,15 +32,15 @@ void	rb(t_env *env)
 {
 	t_node	*tmp;
 
-	if (env->B->size < 2)
+	if (env->b->size < 2)
 		return ;
-	tmp = env->B->top;
-	env->B->top = env->B->top->next;
-	env->B->top->prev = NULL;
+	tmp = env->b->top;
+	env->b->top = env->b->top->next;
+	env->b->top->prev = NULL;
 	disconnect_node(tmp);
-	tmp->prev = env->B->bot;
-	env->B->bot->next = tmp;
-	env->B->bot = tmp;
+	tmp->prev = env->b->bot;
+	env->b->bot->next = tmp;
+	env->b->bot = tmp;
 	ft_putendl_fd("rb", 1);
 }
 
@@ -63,12 +62,12 @@ int	main(int argc, char **argv)
 			return (0);
 
 	ra(env);
-	printf("size %d\n", env->A->size);
+	printf("size %d\n", env->a->size);
 	t_node	*cur;
-	cur = env->A->top;
+	cur = env->a->top;
 	while (cur)
 	{
-		printf("value A : %d\n", cur->value);
+		printf("value a : %d\n", cur->value);
 		cur = cur->next;
 	}
 	env = clear_env(env);

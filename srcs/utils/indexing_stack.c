@@ -6,7 +6,7 @@
 /*   By: trerolle <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 14:36:59 by trerolle          #+#    #+#             */
-/*   Updated: 2022/08/06 16:07:43 by trerolle         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:21:22 by trerolle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	copy_value_in_rank(t_env *env)
 {
 	t_node	*cur_node;
 
-	cur_node = env->A->top;
+	cur_node = env->a->top;
 	while (cur_node)
 	{
 		cur_node->rank = cur_node->value;
@@ -30,10 +30,10 @@ void	sort_values(t_env *env)
 	t_node	*prev_node;
 	int		tmp;
 
-	cur_node = env->A->top->next;
+	cur_node = env->a->top->next;
 	while (cur_node)
 	{
-		prev_node = env->A->top;
+		prev_node = env->a->top;
 		while (prev_node != cur_node)
 		{
 			if (cur_node->value < prev_node->value)
@@ -48,12 +48,12 @@ void	sort_values(t_env *env)
 	}
 }
 
-void	find_index(t_stack *A, t_node *cur_node)
+void	find_index(t_stack *a, t_node *cur_node)
 {
 	t_node	*match_node;
-	int	index;
+	int		index;
 
-	match_node = A->top;
+	match_node = a->top;
 	index = 1;
 	while (cur_node->rank != match_node->value)
 	{
@@ -63,15 +63,14 @@ void	find_index(t_stack *A, t_node *cur_node)
 	cur_node->rank = index;
 }
 
-
 void	convert_numbers_into_index(t_env *env)
 {
 	t_node	*cur_node;
 
-	cur_node = env->A->top;
+	cur_node = env->a->top;
 	while (cur_node)
 	{
-		find_index(env->A, cur_node);
+		find_index(env->a, cur_node);
 		cur_node = cur_node->next;
 	}
 }
@@ -80,7 +79,7 @@ void	fill_copy_rank_in_value(t_env *env)
 {
 	t_node	*cur_node;
 
-	cur_node = env->A->top;
+	cur_node = env->a->top;
 	copy_value_in_rank(env);
 	sort_values(env);
 	convert_numbers_into_index(env);
